@@ -1,0 +1,22 @@
+[package]
+name = "mru-sort"
+version = "0.1.0"
+edition = "2021"
+description = "Sort input stream by item usage (+ alphabetically as a tiebreaker)"
+license = "MIT"
+authors = ["Michael van Bracht <michael@wontfix.org>"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.75"
+clap = { version = "4.4.2", features = ["derive"] }
+serde = "1.0.188"
+serde_json = "1.0.105"
+xdg = "2.5.2"
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
+#panic = "abort"
+opt-level = "s"
